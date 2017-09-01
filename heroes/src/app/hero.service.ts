@@ -1,8 +1,12 @@
+
 import { Injectable } from '@angular/core';
 
-@Injectable() 
-//applied the function as an injectable decorator
-//tells typescript to emit metadata about the service
-export class HeroService{
-  getHeroes(): void{};//stub
+import { Hero } from './hero';
+import { HEROES } from './mock-heroes';
+
+@Injectable()
+export class HeroService {
+  getHeroes(): Promise<Hero[]> {
+    return Promise.resolve(HEROES);
+  }
 }
